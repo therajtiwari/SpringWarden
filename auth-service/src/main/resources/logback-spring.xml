@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+    Include Spring Boot's default Logback configuration.
+    -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--
+    Custom Loggers for the Auth Service.
+    - Set the log level for your application's own packages to DEBUG.
+    - Set Spring Security's logger to INFO to reduce noise, but you can set it to
+      DEBUG to see detailed filter chain operations.
+    -->
+    <logger name="com.springwarden.auth" level="DEBUG"/>
+    <logger name="org.springframework.security" level="INFO"/>
+
+</configuration>

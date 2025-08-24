@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+    Include Spring Boot's default Logback configuration.
+    This sets up a console appender and default log formats.
+    -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--
+    Custom Loggers for the API Gateway.
+    - Set the log level for your application's own packages to DEBUG.
+    - Set Spring Cloud Gateway's logger to TRACE for detailed routing info.
+    - Set Netty's HTTP client logger to DEBUG to see request/response details.
+    -->
+    <logger name="com.springwarden.gateway" level="DEBUG"/>
+    <logger name="org.springframework.cloud.gateway" level="INFO"/> <!-- Use TRACE for extreme detail -->
+    <logger name="reactor.netty.http.client" level="INFO"/> <!-- Use DEBUG for request/response logging -->
+
+</configuration>

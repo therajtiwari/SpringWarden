@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+    Include Spring Boot's default Logback configuration.
+    -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--
+    Custom Loggers for the User Service.
+    - Set the log level for your application's own packages to DEBUG.
+    - Set Spring Kafka's logger to INFO to see consumer events without excessive detail.
+      You can set this to DEBUG to see message payloads and more.
+    -->
+    <logger name="com.springwarden.user" level="DEBUG"/>
+    <logger name="org.springframework.kafka" level="INFO"/>
+
+</configuration>

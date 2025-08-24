@@ -1,0 +1,23 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+# Eureka Server specific configuration
+eureka:
+  client:
+    # Since this instance IS the registry, it should not try to register with itself.
+    register-with-eureka: false
+    # This instance should not try to fetch a registry of other services from itself.
+    fetch-registry: false
+  server:
+    # For development: disable the wait time for replicas to connect on startup.
+    # In a production multi-node cluster, you would remove this line.
+    wait-time-in-ms-when-sync-empty: 0
+
+logging:
+  level:
+    com.netflix.eureka: INFO
+    com.netflix.discovery: INFO

@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+# IMPORTANT: This secret key MUST match the one used in the auth-service.
+# In production, load from Vault, Config Server, or env variable.
+jwt:
+  secret: c3ByaW5nd2FyZGVuLXNlY3JldC1rZXktZm9yLWRldmVsb3BtZW50LXB1cnBvc2VzLW9ubHk=
+
+logging:
+  level:
+    com.springwarden: DEBUG
+    org.springframework.cloud.gateway: TRACE # Detailed routing logs
+    reactor.netty.http.client: DEBUG
